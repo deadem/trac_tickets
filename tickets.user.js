@@ -11,7 +11,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
 
 function main()
 {
-  $('body').prepend('<style>pre,textarea {font-family: inherit;}.diff table.trac-diff td {font-size:13px;}</style>');
+  $('body').prepend(['<style>',
+    'textarea {font-family: inherit;outline: none;}',
+    '.diff table.trac-diff td {font-size:13px;}',
+    '#cpnavpanel {opacity:0.1} #cpnavpanel:hover{opacity:1}',
+    '</style>'].join(''));
   var trunkList = {};
   $('TABLE.trac-diff').css({ 'width': '', 'min-width': '100%', 'white-space': 'pre' }).find('td *').contents().filter(function() {
     return this.nodeType == 3;
