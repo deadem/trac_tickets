@@ -4,11 +4,11 @@
         "exclude_globs":    [  ],
         "include_globs":    [ "*" ],
         "js":               [ "tickets.user.js" ],
-        "matches":          [   "http://trac.*/*" ],
+        "matches":          [ "http://trac.consultant.ru/*" ],
         "run_at": "document_end"
     } ],
     "converted_from_user_script": true,
     "description":  "TRAC tickets",
     "name":         "TRAC tickets",
-    "version":      "1.12"
+    "version":      "1.13"
 }

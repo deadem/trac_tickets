@@ -15,12 +15,17 @@ function main()
     'textarea {font-family: inherit;outline: none;}',
     '.diff table.trac-diff td {font-size:13px;}',
     '#cpnavpanel {opacity:0.1} #cpnavpanel:hover{opacity:1}',
+    '.tickets tbody td.summary a {word-break: break-word;}',
+    '.tickets .resolution { display: none;}',
     '</style>'].join(''));
   var trunkList = {};
   $('TABLE.trac-diff').css({ 'width': '', 'min-width': '100%', 'white-space': 'pre' }).find('td *').contents().filter(function() {
     return this.nodeType == 3;
   }).each(function(i, node) {
     node.textContent = utf2win(node.textContent);
+  });
+  $('A[href*="/main_online/"]').each(function() {
+    $(this).attr('style', ($(this).attr('style') || '') + 'background-color:#acedac;');
   });
   $('EM').each(function() {
     var text = $(this).html();
