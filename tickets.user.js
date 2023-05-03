@@ -25,7 +25,7 @@ function main()
     node.textContent = utf2win(node.textContent);
   });
   $('A[href*="/main_online/"]').each(function() {
-    $(this).attr('style', ($(this).attr('style') || '') + 'background-color:#acedac;');
+    $(this).attr('style', ($(this).attr('style') || '') + 'background-color:#e1f7e1;');
   });
   $('EM').each(function() {
     var text = $(this).html();
@@ -59,7 +59,7 @@ function main()
   $('FORM#batchmod-form').hide();
 
   var ticket = $('A.trac-id').attr('href') + '';
-  $('#propertyform').before('<h2>Ticket #' + ticket.replace(/\D/g, '') + ' ' + $('H1 .summary:first').html() + '</h2>');
+  $('#propertyform').before('<h2>Trac ticket : #' + ticket.replace(/\D/g, '') + '</h2><h2>' + $('H1 .summary:first').html() + '</h2>');
   for (var k in trunkList) {
     $('#propertyform').before('<h3>' + k +': ' + trunkList[k] + '</h3>');
   }
