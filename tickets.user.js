@@ -64,15 +64,21 @@ function main()
     $('#propertyform').before('<h3>' + k +': ' + trunkList[k] + '</h3>');
   }
 
+  function previewAttachment() {
+      var text = '';
+      attachment.find('#preview td').each(function() {
+          text += $(this).text();
+      });
+
+      $('#preview').before('<h2>Attachment preview</h2><div style="border:1px solid #ccc;padding:10px;margin-bottom:20px;">' + text + '</div>');
+
+      $('#preview-btn').remove();
+  }
   var attachment = $('DIV#content.attachment');
   if (attachment.find('H1').text().match(/\.(html)$/)) {
-    var text = '';
-    attachment.find('#preview td').each(function() {
-        text += $(this).text();
-    });
-
-    $('#preview').before('<h2>Attachment preview</h2><div style="border:1px solid #ccc;padding:10px;margin-bottom:20px;">' + text + '</div>');
-    }
+    $('#preview').before('<button id="preview-btn" style="margin:10px;font-size:18px">Preview</button>');
+    $('#preview-btn').click(previewAttachment);
+  }
 }
 $(document).ready(main);
 
