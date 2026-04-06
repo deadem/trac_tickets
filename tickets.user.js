@@ -60,9 +60,12 @@ function main()
 
   var ticket = $('A.trac-id').attr('href') + '';
   $('#propertyform').before('<h2>Trac ticket : #' + ticket.replace(/\D/g, '') + '</h2><h2>' + $('H1 .summary:first').html() + '</h2>');
-  for (var k in trunkList) {
-    $('#propertyform').before('<h3>' + k +': ' + trunkList[k] + '</h3>');
-  }
+
+  if ($('#trac-comments-nolimit-check').prop('checked')) {
+      for (var k in trunkList) {
+          $('#propertyform').before('<h3>' + k +': ' + trunkList[k] + '</h3>');
+        }
+    }
 
   function previewAttachment() {
       var text = '';
