@@ -57,12 +57,14 @@ function main()
   query.insertBefore($('#altlinks'));
   $('FORM#batchmod-form').hide();
 
-  var login = $('DIV#metanav A[data-usr]').attr('data-usr');
-  var needToVerify = $('DIV#ticket_head_verify TR.intermediate').filter(function() {
-    return $(this).find('TD.user A[data-usr]').attr('data-usr') == login && $(this).find('TD.branch .result.wait').length > 0;
-  }).length > 0;
-  if (needToVerify) {
-    $('#propertyform').before('<h2 style="color:red;"><a href="#action">You have pending verifications</a></h2>');
+  if (!$('td[headers="h_custom_field_order"]').text()?.match(/closed/)) {
+    var login = $('DIV#metanav A[data-usr]').attr('data-usr');
+    var needToVerify = $('DIV#ticket_head_verify TR.intermediate').filter(function() {
+        return $(this).find('TD.user A[data-usr]').attr('data-usr') == login && $(this).find('TD.branch .result.wait').length > 0;
+    }).length > 0;
+    if (needToVerify) {
+        $('#propertyform').before('<h2 style="color:red;"><a href="#action">You have pending verifications</a></h2>');
+    }
   }
 
   var ticket = $('A.trac-id').attr('href') + '';
