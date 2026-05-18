@@ -55,8 +55,15 @@ function main()
   });
   var query = $('FORM#query').prev('H1').andSelf().detach();
   query.insertBefore($('#altlinks'));
-//  $("DIV.buttons").hide();
   $('FORM#batchmod-form').hide();
+
+  var login = $('DIV#metanav A[data-usr]').attr('data-usr');
+  var needToVerify = $('DIV#ticket_head_verify TR.intermediate').filter(function() {
+    return $(this).find('TD.user A[data-usr]').attr('data-usr') == login && $(this).find('TD.branch .result.wait').length > 0;
+  }).length > 0;
+  if (needToVerify) {
+    $('#propertyform').before('<h2 style="color:red;"><a href="#action">You have pending verifications</a></h2>');
+  }
 
   var ticket = $('A.trac-id').attr('href') + '';
   $('#propertyform').before('<h2>Trac ticket : #' + ticket.replace(/\D/g, '') + '</h2><h2>' + $('H1 .summary:first').html() + '</h2>');
