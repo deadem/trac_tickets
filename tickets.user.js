@@ -57,7 +57,7 @@ function main()
   query.insertBefore($('#altlinks'));
   $('FORM#batchmod-form').hide();
 
-  if (!$('td[headers="h_custom_field_order"]').text()?.match(/closed|new|assigned|-4/)) {
+  if (!$('td[headers="h_custom_field_order"]').text()?.match(/closed|new|assigned|-4|-9/)) {
     var login = $('DIV#metanav A[data-usr]').attr('data-usr');
     var needToVerify = $('DIV#ticket_head_verify TR.intermediate').filter(function() {
         return $(this).find('TD.user A[data-usr]').attr('data-usr') == login && $(this).find('TD.branch .result.wait').length > 0;
