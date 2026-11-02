@@ -14,9 +14,48 @@
       ],
       "exclude_globs": [],
       "js": [
+        "content-auth.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "http://trac.consultant.ru/*",
+        "https://trac.consultant.ru/*"
+      ],
+      "include_globs": [
+        "*"
+      ],
+      "exclude_globs": [],
+      "js": [
         "tickets.user.js"
       ],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://trac.consultant.ru/*",
+    "https://trac.consultant.ru/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_popup": "popup/popup.html",
+    "default_title": "TRAC tickets"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>TRAC tickets</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body class="popup">
+  <div class="popup__checking">
+    <div class="popup__checking-skeleton">
+      <div class="popup__skeleton-item">
+        <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+      </div>
+      <div class="popup__skeleton-item">
+        <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+      </div>
+      <div class="popup__skeleton-item">
+        <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+        <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+      </div>
+    </div>
+  </div>
+  <div class="popup__auth">
+    <div class="popup__auth-content">
+      <h2 class="popup__auth-title">Требуется вход в Trac</h2>
+      <p class="popup__auth-text" id="auth-text">Откройте Trac в браузере и войдите в систему. После этого список
+        тикетов загрузится автоматически.</p>
+      <a class="popup__button popup__button--primary popup__auth-button" id="open-trac"
+        href="https://trac.consultant.ru/" target="_blank" rel="noopener">Открыть Trac</a>
+    </div>
+  </div>
+  <header class="popup__header">
+    <div class="popup__header-row">
+      <h1 class="popup__title" id="title">Тикеты на проверку</h1>
+      <span class="popup__user popup__user--hidden" id="user"></span>
+    </div>
+  </header>
+  <main class="popup__body">
+    <div class="popup__toolbar">
+      <a class="popup__button popup__button--primary popup__button--hidden" id="open-query" href="#" target="_blank"
+        rel="noopener">Открыть полный список</a>
+      <button class="popup__button" id="refresh" type="button">Обновить</button>
+    </div>
+    <div class="popup__status" id="status"></div>
+    <div class="popup__list-wrap" id="list-wrap">
+      <ul class="popup__list" id="tickets"></ul>
+      <div class="popup__skeleton">
+        <div class="popup__skeleton-item">
+          <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+        </div>
+        <div class="popup__skeleton-item">
+          <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+        </div>
+        <div class="popup__skeleton-item">
+          <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+        </div>
+        <div class="popup__skeleton-item">
+          <div class="popup__skeleton-line popup__skeleton-line--id"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary"></div>
+          <div class="popup__skeleton-line popup__skeleton-line--summary-short"></div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__empty" id="empty">Нет тикетов на проверку</div>
+    <div class="popup__footer">
+      <label class="popup__switch">
+        <input class="popup__switch-input" id="auto-refresh" type="checkbox" checked>
+        <span class="popup__switch-track">
+          <span class="popup__switch-thumb"></span>
+        </span>
+        <span class="popup__switch-text">Автообновление</span>
+      </label>
+      <div class="popup__meta" id="meta"></div>
+    </div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+
+</html>
